@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body onclick="myFunction()">
+
+<button type="submit"  onclick="myFunction();" name="button">Gonder</button>
+<p id="demo"></p>
+
+
+<script>
+
+function myFunction()
+{
+const xhttp=new XMLHttpRequest();
+xhttp.onload=function()
+{
+document.getElementById("demo").innerHTML=this.responseText;
+}
+xhttp.open("GET","data.txt");
+xhttp.send();
+}
+
+
+</script>
+
+
+</body>
