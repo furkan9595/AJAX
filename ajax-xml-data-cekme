@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+<p id="demo"></p>
+
+<script>
+
+const xhttp = new XMLHttpRequest();
+
+xhttp.onload = function()
+{
+  const xmlDoc = this.responseXML;
+  const x = xmlDoc.getElementsByTagName("name");
+  let txt = "";
+  for (let i = 0; i < x.length; i++)
+  {
+    txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+
+xhttp.open("GET", "data.xml");
+xhttp.send();
+
+
+</script>
+
+</body>
+</html>
+
+## data.xml adında bir data oluşturduk
+
+<students>
+<student>
+<name>Mehmet</name>
+<surname>KAYSERİ</surname>
+<number>0512121</number>
+</student>
+
+<student>
+<name>ahmet</name>
+<surname>turunç</surname>
+<number>012345</number>
+</student>
+
+<student>
+<name>aysel</name>
+<surname>Aslan</surname>
+<number>011111</number>
+</student>
+
+<student>
+<name>Hüseyin</name>
+<surname>Torkez</surname>
+<number>11111</number>
+</student>
+
+</students>
