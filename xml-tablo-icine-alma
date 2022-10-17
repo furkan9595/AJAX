@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+<div id="demo"></div>
+
+<script>
+
+const xhttp = new XMLHttpRequest();
+
+xhttp.onload = function()
+{
+  const xmlDoc = this.responseXML;
+  const x = xmlDoc.getElementsByTagName("name");
+  let table="<table border='1'><tr>";
+  for (let i = 0; i < x.length; i++)
+  {
+    table += "<td>"+x[i].childNodes[0].nodeValue +"</td>";
+  }
+  document.getElementById("demo").innerHTML =  table+"</tr></table>";
+}
+xhttp.open("GET", "data.xml");
+xhttp.send();
+
+
+</script>
+
+</body>
+</html>
